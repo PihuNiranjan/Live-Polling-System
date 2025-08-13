@@ -1,0 +1,120 @@
+/* src/components/StudentNameEntry.css */
+.student-name-entry {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.entry-container {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.entry-header {
+    margin-bottom: 2rem;
+}
+
+.entry-header h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.entry-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.name-form {
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+}
+
+.form-group input:focus {
+    border-color: #0984e3;
+}
+
+.join-button {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.join-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(116, 185, 255, 0.4);
+}
+
+.entry-info {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.entry-info h4 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.entry-info ul {
+    list-style: none;
+    color: #666;
+}
+
+.entry-info li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.entry-info li::before {
+    content: '•';
+    color: #0984e3;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .entry-container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .entry-header h1 {
+        font-size: 1.5rem;
+    }
+}

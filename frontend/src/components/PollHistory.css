@@ -1,0 +1,358 @@
+/* src/components/PollHistory.css */
+.poll-history {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.history-header h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.history-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.no-history {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.no-history p:first-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.no-history p:last-child {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.history-item {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.history-summary {
+    padding: 1.5rem;
+    cursor: pointer;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.history-summary:hover {
+    background: #e9ecef;
+}
+
+.poll-info {
+    flex: 1;
+}
+
+.poll-question {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.poll-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.poll-meta span {
+    padding: 0.25rem 0.75rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.expand-icon {
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.history-item:hover .expand-icon {
+    transform: scale(1.2);
+}
+
+.history-details {
+    padding: 0 1.5rem 1.5rem;
+    background: white;
+    border-top: 1px solid #e9ecef;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 500px;
+        padding-top: 0;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.results-breakdown {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.result-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    background: #e9ecef;
+}
+
+.option-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.vote-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.vote-count {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.vote-percentage {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 4px;
+    transition: width 0.8s ease-out;
+}
+
+/* Ranking indicators for history */
+.result-item:nth-child(1) .option-text {
+    color: #28a745;
+}
+
+.result-item:nth-child(1) .progress-fill {
+    background: linear-gradient(90deg, #28a745, #20c997);
+}
+
+.result-item:nth-child(1) .vote-percentage {
+    color: #28a745;
+}
+
+/* Time stamps styling */
+.poll-meta span:first-child {
+    background: #e3f2fd;
+    color: #1976d2;
+    border-color: #bbdefb;
+}
+
+/* Response rate indicator */
+.response-rate {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.response-rate-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.response-rate-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.response-rate-bar {
+    margin-top: 0.5rem;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.response-rate-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 3px;
+    transition: width 1s ease-out;
+}
+
+/* Search and filter for history */
+.history-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.history-search {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.history-search:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.history-filter {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.9rem;
+}
+
+/* Animation for history items */
+.history-item {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.history-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.history-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.history-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.history-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.history-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .poll-history {
+        padding: 1rem;
+    }
+
+    .history-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .history-summary {
+        padding: 1rem;
+    }
+
+    .poll-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .history-details {
+        padding: 0 1rem 1rem;
+    }
+
+    .vote-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .history-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
