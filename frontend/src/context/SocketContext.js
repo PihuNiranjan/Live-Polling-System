@@ -1,61 +1,47 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import io from "socket.io-client";
+
+// import React, { createContext, useContext, useState } from "react";
+// import pollService from "../services/pollService";
+
+// const SocketContext = createContext();
+
+// export const useSocket = () => useContext(SocketContext);
+
+// export const SocketProvider = ({ children }) => {
+//   const [connected, setConnected] = useState(true);
+
+//   return (
+//     <SocketContext.Provider
+//       value={{
+//         socket: pollService,
+//         connected,
+//         pollService,
+//       }}
+//     >
+//       {children}
+//     </SocketContext.Provider>
+//   );
+// };
+
+import { createContext, useContext } from "react";
+import pollService from "../services/pollService";
 
 const SocketContext = createContext();
 
-export const useSocket = () => {
-  const context = useContext(SocketContext);
-  if (!context) {
-    throw new Error("useSocket must be used within a SocketProvider");
-  }
-  return context;
-};
+export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }) => {
-  const [socket, setSocket] = useState(null);
-  const [connected, setConnected] = useState(false);
-
-  useEffect(() => {
-    // Connect to server
-    const newSocket = io(
-      process.env.REACT_APP_SERVER_URL || "http://localhost:5000",
-      {
-        autoConnect: true,
-        reconnection: true,
-        reconnectionDelay: 1000,
-        reconnectionAttempts: 5,
-        maxReconnectionAttempts: 5,
-      }
-    );
-
-    newSocket.on("connect", () => {
-      console.log("Connected to server");
-      setConnected(true);
-    });
-
-    newSocket.on("disconnect", () => {
-      console.log("Disconnected from server");
-      setConnected(false);
-    });
-
-    newSocket.on("connect_error", (error) => {
-      console.error("Connection error:", error);
-      setConnected(false);
-    });
-
-    setSocket(newSocket);
-
-    return () => {
-      newSocket.close();
-    };
-  }, []);
-
-  const value = {
-    socket,
-    connected,
-  };
+  // Remove the unused setConnected state
+  const connected = true; // Always connected in local mode
 
   return (
-    <SocketContext.Provider value={value}>{children}</SocketContext.Provider>
+    <SocketContext.Provider
+      value={{
+        socket: pollService,
+        connected,
+        pollService,
+      }}
+    >
+      {children}
+    </SocketContext.Provider>
   );
 };
