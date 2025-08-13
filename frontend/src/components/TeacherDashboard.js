@@ -143,6 +143,7 @@ const TeacherDashboard = () => {
           <PollResults
             poll={currentPoll}
             students={students}
+            votes={votes}
             onEndPoll={endPoll}
           />
         )}
