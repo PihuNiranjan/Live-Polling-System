@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "*", // In production, specify your frontend domain
+    origin: "https://live-polling-system-frontend-91iu.onrender.com", // In production, specify your frontend domain
     methods: ["GET", "POST"]
   }
 });
