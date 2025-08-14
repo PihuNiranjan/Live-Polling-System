@@ -18,7 +18,7 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     // Connect to server
     const newSocket = io(
-      process.env.REACT_APP_SERVER_URL || "http://localhost:5000",
+      process.env.REACT_APP_SERVER_URL || "https://live-polling-system-6244.onrender.com",
       {
         autoConnect: true,
         reconnection: true,
